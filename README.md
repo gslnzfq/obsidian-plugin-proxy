@@ -1,20 +1,19 @@
 # obsidian-plugin-proxy
 
-It's a proxy tool to help you visit plugin-market faster.
+本插件基于 [binyu1231/obsidian-plugin-proxy](https://github.com/binyu1231/obsidian-plugin-proxy) 的master分支进行开发。
 
-<!-- [![NPM version](https://img.shields.io/npm/v/obsidian-plugin-proxy?color=a1b858&label=)](https://www.npmjs.com/package/obsidian-plugin-proxy) -->
+它是一个代理工具，可以帮助您更快地访问插件市场。
 
+## 开始
 
-## Startup
+1、在下面的链接下载 `obsidian-plugin-proxy.zip` 文件。  
+- [Github下载地址](https://github.com/gslnzfq/obsidian-plugin-proxy/releases)
 
-1. download plugin files `obsidian-plugin-proxy.zip` here.
-  - [Gitee](https://gitee.com/114000/obsidian-plugin-proxy/releases)
-  - [Github](https://github.com/binyu1231/obsidian-plugin-proxy/releases)
-2. unzip `obsidian-plugin-proxy.zip` to yourProject/.obsidian/plugins
+2、解压 `obsidian-plugin-proxy.zip` 到你笔记的 `.obsidian/plugins` 文件夹
 
-## Custom Proxy
+## 自定义配置
 
-Adding struct to  `.obsidian/plugins/obsidian-plugin-proxy/data.json` `proxyList` field
+配置  `.obsidian/plugins/obsidian-plugin-proxy/data.json` 文件中 `proxyList` 字段
 
 ``` json
 {
@@ -23,17 +22,24 @@ Adding struct to  `.obsidian/plugins/obsidian-plugin-proxy/data.json` `proxyList
     // ... other proxy
     {
       "id": "your proxy id",
-      // replace `https://github.com/` for downloading plugin.
-      "download": "https://gh.gcdn.mirr.one/",
-      // replace https://raw.githubusercontent.com/
-      "raw": "https://raw-gh.gcdn.mirr.one/",
-      // replace https://github.com/ for displaying plugin README page.
+      "raw": "https://gh.gcdn.mirr.one/",
+      "userImages": "https://raw-gh.gcdn.mirr.one/",
       "page": "https://gh.gcdn.mirr.one/"
     }
   ]
   // ...
 }
 ```
+
+## 界面配置
+
+需要搭配可以查看[代理服务器中的配置链接](https://obsidian-proxy.netlify.app/)使用。
+
+- 关联项目：[obsidian-proxy-server](https://github.com/gslnzfq/obsidian-proxy-server)
+
+设置页面的配置，可以添加和删除代理，可以切换代理
+
+![docs/img.png](docs/img.png)
 
 ## License
 

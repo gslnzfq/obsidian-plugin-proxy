@@ -1,33 +1,27 @@
 export enum ProxyRequestType {
   Unknown,
-  Download = 'download',
   Raw = 'raw',
   Page = 'page',
-}
-
-export interface ProxyRequestConfig {
-  [ProxyRequestType.Download]: string
-  [ProxyRequestType.Raw]: string
-  [ProxyRequestType.Page]: string
+  UserImage = 'userImages',
 }
 
 export const proxyRequestMatchRegex: [ProxyRequestType, RegExp][] = [
-  [ProxyRequestType.Download, /\release\/download\//g],
   [ProxyRequestType.Raw, /^https?:\/\/raw.githubusercontent.com\//],
   [ProxyRequestType.Page, /^https?:\/\/github.com\//],
+  [ProxyRequestType.UserImage, /^https?:\/\/user-images.githubusercontent.com\//],
 ]
 
 export const proxyRequestReplaceHostMap: Map<ProxyRequestType, string> = new Map([
-  [ProxyRequestType.Download, 'https://github.com/'],
   [ProxyRequestType.Raw, 'https://raw.githubusercontent.com/'],
   [ProxyRequestType.Page, 'https://github.com/'],
+  [ProxyRequestType.UserImage, 'https://user-images.githubusercontent.com/'],
 ])
 
 export interface DataConfigProxyItem {
   id: string
-  download: string
   raw: string
   page: string
+  userImages: string
 }
 
 export interface DataConfig {

@@ -1,18 +1,16 @@
 {
   "name": "obsidian-plugin-proxy",
   "type": "module",
-  "version": "0.0.1",
-  "packageManager": "pnpm@7.2.1",
+  "version": "0.0.5",
   "description": "",
-  "author": "binyu1231 <binyu1231@hotmail.com>",
+  "author": "gslnzfq <gslnzfq@live.cn>",
   "license": "MIT",
-  "funding": "https://github.com/sponsors/binyu1231",
-  "homepage": "https://github.com/binyu1231/obsidian-plugin-proxy#readme",
+  "homepage": "https://github.com/gslnzfq/obsidian-plugin-proxy#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/binyu1231/obsidian-plugin-proxy.git"
+    "url": "git+https://github.com/gslnzfq/obsidian-plugin-proxy.git"
   },
-  "bugs": "https://github.com/binyu1231/obsidian-plugin-proxy/issues",
+  "bugs": "https://github.com/gslnzfq/obsidian-plugin-proxy/issues",
   "keywords": [],
   "sideEffects": false,
   "exports": {
@@ -38,18 +36,16 @@
   ],
   "scripts": {
     "build": "unbuild",
-    "dev": "unbuild --stub",
-    "watch": "unbuild --watch",
     "lint": "eslint .",
     "prepublishOnly": "nr build",
-    "release": "bumpp && npm publish",
-    "start": "esno src/index.ts",
+    "release": "bumpp",
+    "start": "esno src/main.ts",
     "test": "vitest",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "electron": "^19.0.6",
-    "obsidian": "^0.15.3"
+    "electron": "25.2.0",
+    "obsidian": "^1.2.8"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.25.1",
@@ -63,7 +59,7 @@
     "rimraf": "^3.0.2",
     "typescript": "^4.7.4",
     "unbuild": "^0.7.4",
-    "vite": "^2.9.12",
+    "vite": "2.9.13",
     "vitest": "^0.15.1"
   }
 }

@@ -7,18 +7,19 @@ class PluginProxy extends Plugin {
   async onload() {
     this.addSettingTab(new SettingTab(this.app, this))
     const config: DataConfig = await this.loadData()
-
     this.syncConfig(config)
   }
 
   syncConfig(config: DataConfig) {
     const proxyItem = config.proxyList.find(p => p.id === config.currentProxy)
 
-    delegateIpcRendererSend(proxyItem!)
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-expect-error
+    delegateIpcRendererSend(proxyItem!, this.app.vault.adapter.ipcRenderer)
   }
 
   async saveData(config: DataConfig) {
-    super.saveData(config)
+    await super.saveData(config)
     this.syncConfig(config)
   }
 }

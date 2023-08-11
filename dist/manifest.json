@@ -1,0 +1,10 @@
+{
+  "id": "plugin-proxy",
+  "name": "Plugin Proxy",
+  "description": "For visiting plugin market quickly.",
+  "version": "0.1.1",
+  "author": "gslnzfq",
+  "authorUrl": "https://github.com/gslnzfq/",
+  "isDesktopOnly": false,
+  "minAppVersion": "0.9.11"
+}

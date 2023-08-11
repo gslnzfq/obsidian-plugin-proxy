@@ -11,12 +11,14 @@ export class SettingTab extends PluginSettingTab {
   }
 
   async saveData(config?: DataConfig) {
-    config = config || await this.plugin.loadData()
+    config = config || (await this.plugin.loadData())
     await this.plugin.saveData(config)
   }
 
   async showResetNotice() {
-    return new Notice('代理服务器已切换，请重启Obsidian或者点击菜单 View -> Force Reload 后使用三方插件市场和三方主题市场')
+    return new Notice(
+      '代理服务器已切换，请重启Obsidian或者点击菜单 View -> Force Reload 后使用三方插件市场和三方主题市场',
+    )
   }
 
   async display() {
@@ -29,7 +31,9 @@ export class SettingTab extends PluginSettingTab {
 
     new Setting(cont)
       .setName('代理服务器')
-      .setDesc('通过选择不同的服务器来切换代理，可以解决某些情况下，某个服务器无法访问的情况。')
+      .setDesc(
+        '通过选择不同的服务器来切换代理，可以解决某些情况下，某个服务器无法访问的情况。',
+      )
       .addDropdown(async (dropDown) => {
         const config: DataConfig = await this.plugin.loadData()
         config.proxyList.forEach((item: DataConfigProxyItem) => {
@@ -46,20 +50,29 @@ export class SettingTab extends PluginSettingTab {
         })
       })
 
-    new Setting(cont).setName('自定义代理服务器')
-      .setDesc('自定义代理服务器，格式为JSON，包含id、userImages、raw、page字段。')
+    new Setting(cont)
+      .setName('自定义代理服务器')
+      .setDesc(
+        '自定义代理服务器，格式为JSON，包含id、userImages、raw、page字段。',
+      )
       .addTextArea(async (textArea) => {
         inputTextArea = textArea
         textArea.inputEl.style.height = '120px'
         textArea.inputEl.style.width = '100%'
         textArea.inputEl.style.display = 'block'
         textArea.inputEl.style.marginTop = '10px'
-        textArea.setValue(JSON.stringify({
-          id: '',
-          raw: '',
-          page: '',
-          userImages: '',
-        }, null, '  '))
+        textArea.setValue(
+          JSON.stringify(
+            {
+              id: '',
+              raw: '',
+              page: '',
+              userImages: '',
+            },
+            null,
+            '  ',
+          ),
+        )
       })
       .addButton((button) => {
         button.setButtonText('保存')
@@ -74,24 +87,21 @@ export class SettingTab extends PluginSettingTab {
             }
 
             // 查看id是否存在
-            const index = config.proxyList.findIndex(p => p.id === value.id)
+            const index = config.proxyList.findIndex((p) => p.id === value.id)
             if (index === -1) {
               config.proxyList.unshift(value)
-            }
-            else {
+            } else {
               return new Notice(`id为${value.id}的代理已存在`)
             }
 
             await this.saveData(config)
             await this.display()
-          }
-          catch (error) {
+          } catch (error) {
             return new Notice('JSON格式错误')
           }
         })
       })
-      .settingEl
-      .setAttr('style', 'display: block;')
+      .settingEl.setAttr('style', 'display: block;')
 
     const config: DataConfig = await this.plugin.loadData()
     config.proxyList.forEach((item: DataConfigProxyItem) => {
@@ -103,7 +113,7 @@ export class SettingTab extends PluginSettingTab {
           if (config.proxyList.length === 1) {
             return new Notice('至少保留一个代理')
           }
-          config.proxyList = config.proxyList.filter(p => p.id !== item.id)
+          config.proxyList = config.proxyList.filter((p) => p.id !== item.id)
           const firstItem = config.proxyList[0]
           // 如果默认代理是当前代理，那么重置为默认代理
           if (config.defaultProxy === item.id) {

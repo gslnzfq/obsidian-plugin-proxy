@@ -1,0 +1,43 @@
+{
+  "currentProxy": "myproxy",
+  "defaultProxy": "myproxy",
+  "proxyList": [
+    {
+      "id": "myproxy",
+      "raw": "https://obsidian-proxy.netlify.app/api/proxy/raw/",
+      "page": "https://obsidian-proxy.netlify.app/api/proxy/site/",
+      "userImages": "https://obsidian-proxy.netlify.app/api/proxy/user-images/"
+    },
+    {
+      "id": "mirr",
+      "raw": "https://raw-gh.gcdn.mirr.one/",
+      "page": "https://gh.gcdn.mirr.one/"
+    },
+    {
+      "id": "fastgit",
+      "raw": "https://raw.fastgit.org/",
+      "page": "https://hub.fastgit.xyz/"
+    },
+    {
+      "id": "mtr",
+      "raw": "https://raw-gh.gcdn.mirr.one/",
+      "page": "https://api.mtr.pub/"
+    },
+    {
+      "id": "gitclone",
+      "user-images": "https://user-images.githubusercontent.com/",
+      "raw": "https://raw.fastgit.org/",
+      "page": "https://gitclone.com/github.com/"
+    },
+    {
+      "id": "ghproxy",
+      "raw": "https://mirror.ghproxy.com/https://github.com/",
+      "page": "https://mirror.ghproxy.com/https://github.com/"
+    },
+    {
+      "id": "github",
+      "raw": "https://raw.githubusercontent.com/",
+      "page": "https://github.com/"
+    }
+  ]
+}

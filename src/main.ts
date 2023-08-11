@@ -11,8 +11,7 @@ class PluginProxy extends Plugin {
   }
 
   syncConfig(config: DataConfig) {
-    const proxyItem = config.proxyList.find(p => p.id === config.currentProxy)
-
+    const proxyItem = config.proxyList.find((p) => p.id === config.currentProxy)
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-expect-error
     delegateIpcRendererSend(proxyItem!, this.app.vault.adapter.ipcRenderer)

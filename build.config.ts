@@ -1,8 +1,11 @@
+import * as fs from 'fs'
 import { copyFileSync, readdirSync, renameSync, unlinkSync } from 'fs'
 import { resolve } from 'path'
 import { defineBuildConfig } from 'unbuild'
+import pkg from './package.json'
 
-const pluginDir = 'Documents/Obsidian/插件分享/.obsidian/plugins/obsidian-plugin-proxy'
+const pluginDir =
+  'Documents/Obsidian/插件分享/.obsidian/plugins/obsidian-plugin-proxy'
 
 export default defineBuildConfig({
   entries: [
@@ -17,10 +20,7 @@ export default defineBuildConfig({
   ],
   declaration: true,
   clean: true,
-  externals: [
-    'electron',
-    'obsidian',
-  ],
+  externals: ['electron', 'obsidian'],
   rollup: {
     emitCJS: true,
   },
@@ -46,6 +46,11 @@ export default defineBuildConfig({
           copyFileSync(jsFile, obsidianFile)
         }
       })
+      // 修改manifest.json，写入版本号
+      const manifestFile = resolve(outDir, 'manifest.json')
+      const manifest = require(manifestFile)
+      manifest.version = pkg.version
+      fs.writeFileSync(manifestFile, JSON.stringify(manifest, null, 2))
     },
   },
 })

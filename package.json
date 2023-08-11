@@ -1,7 +1,7 @@
 {
   "name": "obsidian-plugin-proxy",
   "type": "module",
-  "version": "0.0.5",
+  "version": "0.1.1",
   "description": "",
   "author": "gslnzfq <gslnzfq@live.cn>",
   "license": "MIT",
@@ -13,53 +13,25 @@
   "bugs": "https://github.com/gslnzfq/obsidian-plugin-proxy/issues",
   "keywords": [],
   "sideEffects": false,
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "require": "./dist/index.cjs",
-      "import": "./dist/index.mjs"
-    }
-  },
-  "main": "./dist/index.mjs",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
-  "typesVersions": {
-    "*": {
-      "*": [
-        "./dist/*",
-        "./dist/index.d.ts"
-      ]
-    }
-  },
-  "files": [
-    "dist"
-  ],
   "scripts": {
     "build": "unbuild",
-    "lint": "eslint .",
-    "prepublishOnly": "nr build",
-    "release": "bumpp",
-    "start": "esno src/main.ts",
-    "test": "vitest",
-    "typecheck": "tsc --noEmit"
-  },
-  "dependencies": {
-    "electron": "25.2.0",
-    "obsidian": "^1.2.8"
+    "format": "prettier --write ./src",
+    "dev": "NODE_ENV=development nodemon --watch src -e ts --exec 'pnpm run build'",
+    "release": "bumpp"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^0.25.1",
-    "@antfu/ni": "^0.16.2",
-    "@antfu/utils": "^0.5.2",
     "@types/node": "^18.0.0",
     "bumpp": "^8.2.1",
-    "eslint": "^8.18.0",
-    "esno": "^0.16.3",
+    "changelogithub": "^0.12.12",
+    "electron": "25.2.0",
+    "nodemon": "^3.0.1",
+    "obsidian": "^1.2.8",
     "pnpm": "^7.2.1",
+    "prettier": "^3.0.1",
     "rimraf": "^3.0.2",
     "typescript": "^4.7.4",
-    "unbuild": "^0.7.4",
-    "vite": "2.9.13",
+    "unbuild": "^1.2.1",
+    "vite": "2.9.16",
     "vitest": "^0.15.1"
   }
 }

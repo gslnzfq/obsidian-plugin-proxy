@@ -35,3 +35,4 @@ jobs:
           draft: false
           prerelease: false
           files: obsidian-plugin-proxy.tar.gz
+          token: ${{secrets.TOKEN}}

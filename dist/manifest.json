@@ -2,7 +2,7 @@
   "id": "plugin-proxy",
   "name": "Plugin Proxy",
   "description": "For visiting plugin market quickly.",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "author": "gslnzfq",
   "authorUrl": "https://github.com/gslnzfq/",
   "isDesktopOnly": false,

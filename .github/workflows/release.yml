@@ -33,6 +33,7 @@ jobs:
           tag_name: ${{ github.ref }}
           name: Release ${{ github.ref }}
           draft: false
+          body: ${{ steps.changelog.outputs.changes }}
           prerelease: false
           files: obsidian-plugin-proxy.tar.gz
           token: ${{secrets.TOKEN}}

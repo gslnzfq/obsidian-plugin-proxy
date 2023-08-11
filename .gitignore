@@ -4,8 +4,9 @@
 *.log
 *.tgz
 coverage
-dist
 lib-cov
 logs
 node_modules
 temp
+dist
+obsidian-plugin-proxy.zip

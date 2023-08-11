@@ -8,14 +8,18 @@ export enum ProxyRequestType {
 export const proxyRequestMatchRegex: [ProxyRequestType, RegExp][] = [
   [ProxyRequestType.Raw, /^https?:\/\/raw.githubusercontent.com\//],
   [ProxyRequestType.Page, /^https?:\/\/github.com\//],
-  [ProxyRequestType.UserImage, /^https?:\/\/user-images.githubusercontent.com\//],
+  [
+    ProxyRequestType.UserImage,
+    /^https?:\/\/user-images.githubusercontent.com\//,
+  ],
 ]
 
-export const proxyRequestReplaceHostMap: Map<ProxyRequestType, string> = new Map([
-  [ProxyRequestType.Raw, 'https://raw.githubusercontent.com/'],
-  [ProxyRequestType.Page, 'https://github.com/'],
-  [ProxyRequestType.UserImage, 'https://user-images.githubusercontent.com/'],
-])
+export const proxyRequestReplaceHostMap: Map<ProxyRequestType, string> =
+  new Map([
+    [ProxyRequestType.Raw, 'https://raw.githubusercontent.com/'],
+    [ProxyRequestType.Page, 'https://github.com/'],
+    [ProxyRequestType.UserImage, 'https://user-images.githubusercontent.com/'],
+  ])
 
 export interface DataConfigProxyItem {
   id: string

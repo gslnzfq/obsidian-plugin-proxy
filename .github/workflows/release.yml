@@ -20,7 +20,8 @@ jobs:
       - name: Package
         run: |
           rm -rf obsidian-plugin-proxy.tar.gz
-          tar -czf obsidian-plugin-proxy.tar.gz dist/main.js dist/manifest.json dist/data.json
+          mv dist obsidian-plugin-proxy
+          tar -czf obsidian-plugin-proxy.tar.gz obsidian-plugin-proxy/main.js obsidian-plugin-proxy/manifest.json obsidian-plugin-proxy/data.json
 
       - name: Create Release and Upload Release Asset
         uses: softprops/action-gh-release@v1

@@ -37,11 +37,11 @@
   },
   "release-it": {
     "git": {
+      "commitMessage": "chore: release v${version}",
       "tagName": "v${version}"
     },
     "github": {
       "release": true,
-      "autoRelease": true,
       "assets": [
         "obsidian-plugin-proxy.zip"
       ]
